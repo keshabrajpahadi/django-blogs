@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">seach keyword  - {{keyword}}</h3>
+<!--<h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Category - {{category}}</h3> --->
+   <div class="row mb-2">
+    {% if blogs %}
+    {% for i in blogs %}
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0"><a href="{% url 'blogs' i.slug %}" class="text-dark">{{i.title}}</a></h3>
+            <div class="mb-1 text-muted">{{i.created_at | timesince}}|{{i.author}}</div>
+            <p class="card-text mb-auto">{{i.short_description |truncatewords:5 }}</p>
+            
+          </div>
+        </div>
+      
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>no post found </p>
+    {% endif %}
+
+
+{% endblock %}

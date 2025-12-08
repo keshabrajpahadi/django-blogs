@@ -7,7 +7,7 @@
     {% if forloop.first %}
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark"style="background-image: url('{{post.featured_image.url}}'); background-blend-mode:overlay; background-size:cover;">
       <div class="col-md-6 px-0" >
-        <h1 class="display-4 fst-italic">{{post.title}}</h1>
+        <h1 class="display-4 fst-italic"></h1>
         <p class="lead my-3">{{post.short_description}}</p>
         <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
       </div>
@@ -25,7 +25,7 @@
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">World</strong>
-            <h3 class="mb-0">{{post.title}}</h3>
+            <h3 class="mb-0"><a href="{% url 'blogs' post.slug %}" class="text-dark">{{post.title}}</a></h3>
             <div class="mb-1 text-muted">{{post.created_at | timesince}}|{{post.author}}</div>
             <p class="card-text mb-auto">{{post.short_description |truncatewords:5 }}</p>
             
