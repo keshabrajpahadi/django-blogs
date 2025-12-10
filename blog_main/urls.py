@@ -30,5 +30,6 @@ urlpatterns = [
 
     path('register/',register,name="register"),
      path('login/',login,name="login"),
-     path('logout/',LogoutUser,name='logout')
+     path('logout/',LogoutUser,name='logout'),
+     path('dashboard/',include('dashboard.urls'))
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
